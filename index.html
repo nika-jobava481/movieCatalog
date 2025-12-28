@@ -3,28 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Catalog</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Movie Catalog - Discover Movies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Movie Catalog</h1>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <button class="hamburger-btn" id="hamburger-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="search-container">
+                <div class="search-input-wrapper" id="search-input-wrapper">
+                    <input type="text" id="search-input" placeholder="Search movies...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="nav-logo">
+                <i class="fas fa-film"></i>
+                <span>Movie Catalog</span>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section>
-            <h2>Welcome</h2>
-            <p>Your content goes here.</p>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>Discover Amazing Movies</h1>
+            <p>Explore thousands of movies with detailed information, trailers, reviews, and more</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading movies...</p>
+        </div>
+
+        <!-- Movies Grid -->
+        <section class="movies-section" id="movies-section">
+            <div class="section-header">
+                <h2 id="section-title">Popular Movies</h2>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            <div class="movies-grid" id="movies-grid"></div>
         </section>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Movie Catalog. All rights reserved.</p>
-    </footer>
+    <!-- Movie Detail Modal -->
+    <div class="modal" id="movie-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
 
-    <script src="js/main.js"></script>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger-menu-content">
+            <div class="hamburger-header">
+                <h2>Filters</h2>
+                <button class="hamburger-close" id="hamburger-close">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Search in Menu -->
+            <div class="hamburger-search">
+                <div class="search-input-wrapper-menu">
+                    <input type="text" id="search-input-menu" placeholder="Search movies...">
+                    <button id="search-btn-menu"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="hamburger-section">
+                <h3>CATEGORIES</h3>
+                <div class="filter-buttons" id="categories-buttons">
+                    <button class="filter-btn active" data-section="popular">Popular</button>
+                    <button class="filter-btn" data-section="top-rated">Top Rated</button>
+                    <button class="filter-btn" data-section="now-playing">Now Playing</button>
+                    <button class="filter-btn" data-section="upcoming">Upcoming</button>
+                </div>
+            </div>
+
+            <!-- Genres Section -->
+            <div class="hamburger-section">
+                <h3>GENRES</h3>
+                <div class="filter-buttons" id="genres-buttons">
+                    <!-- Genres will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
